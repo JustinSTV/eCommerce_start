@@ -1,9 +1,13 @@
-import React from 'react'
+// import React from 'react'
+
+import SearchBar from "../Search Bar/SearchBar"
 
 
 const Header = () => {
   return (
-    <div className='top-0 border border-solid border-black h-10'>Header</div>
+    <div className='top-0 border border-solid border-black h-16'>
+      <SearchBar />
+    </div>
   )
 }
 

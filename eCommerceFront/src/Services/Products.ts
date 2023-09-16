@@ -4,6 +4,6 @@ export const getAllProducts = () => {
 }
 
 export const searchProducts = (searchTerm: string) => { 
-  return fetch(`https://dummyjson.com/products?search=${searchTerm}`)
+  return fetch(`https://dummyjson.com/products/search?q=${searchTerm}`)
   .then(res => res.json())
 }

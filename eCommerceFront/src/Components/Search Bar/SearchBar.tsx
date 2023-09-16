@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 
 interface SearchBarInterface {
   name: string,
@@ -8,11 +8,14 @@ interface SearchBarInterface {
 
 const SearchBar: React.FC<SearchBarInterface> = ({name, lable}) => {
   const [searchProductName, setSearchProductName] = useState<string | undefined>()
-  const navigate = useNavigate()
-
+  let [ searchParams, setSearchParams ] = useSearchParams()
+  
   useEffect(() => {
-    navigate(`/?search=${searchProductName}`)
-  }, [searchProductName, navigate])
+    setSearchParams((params) => {
+      params.set("search", searchProductName ?? "")
+      return params
+    })
+  }, [searchProductName, setSearchParams])
 
   return (
     <div>
